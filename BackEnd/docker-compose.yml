@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: lightfly-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lightfly
+      POSTGRES_PASSWORD: lightfly
+      POSTGRES_DB: lightfly
+    ports:
+      - "5432:5432"
+    volumes:
+      - lightfly-pgdata:/var/lib/postgresql/data
+
+volumes:
+  lightfly-pgdata:

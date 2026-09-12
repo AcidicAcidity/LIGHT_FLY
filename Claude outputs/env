@@ -1,0 +1,27 @@
+# PostgreSQL — строка подключения
+# ВАЖНО: замени ЗАМЕНИ_ПАРОЛЬ на пароль пользователя postgres (как в pgAdmin).
+# База LIGHT_FLY — заглавными, как в pgAdmin.
+DATABASE_URL="postgresql://postgres:ЗАМЕНИ_ПАРОЛЬ@localhost:5432/LIGHT_FLY?schema=public"
+
+# Порт API
+PORT=3000
+
+# Секрет для подписи JWT (в реальном проекте — длинная случайная строка)
+JWT_SECRET="super-secret-change-me"
+JWT_EXPIRES_IN="7d"
+
+# Разрешённый origin фронтенда (CORS)
+CLIENT_ORIGIN="http://localhost:5173,http://127.0.0.1:5173"
+
+# Режим (development | production)
+NODE_ENV="development"
+
+# --- Почта для 2FA ---
+# Если SMTP-переменные заданы — коды уходят реальным письмом через SMTP.
+# Если НЕ заданы — код печатается в консоль сервера, а в dev-режиме
+# дополнительно возвращается в ответе API (поле devCode) для удобства проверки.
+SMTP_HOST=""
+SMTP_PORT="587"
+SMTP_USER=""
+SMTP_PASS=""
+SMTP_FROM="LIGHT FLY <no-reply@lightfly.example>"
